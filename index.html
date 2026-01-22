@@ -17,28 +17,39 @@
 </head>
 
 <body>
-<canvas id="bg"></canvas>
 
+<!-- Fundo borrado -->
+<div class="background"></div>
+
+<!-- Login Google -->
 <div id="login" class="panel">
     <h1>CraftPlace</h1>
-    <button onclick="loginGoogle()">Entrar com Google</button>
+    <p class="subtitle">Entre para jogar</p>
 
-    <input id="username" placeholder="Nome do jogador">
-    <input id="password" type="password" placeholder="Senha">
-    <button onclick="createAccount()">Criar Conta</button>
+    <button class="google" onclick="loginGoogle()">
+        Entrar com Google
+    </button>
 </div>
 
+<!-- Criar perfil -->
+<div id="profile" class="panel hidden">
+    <h2>Criar Perfil</h2>
+
+    <input id="username" placeholder="Nickname">
+    <input id="password" type="password" placeholder="Senha">
+
+    <button onclick="createAccount()">Confirmar</button>
+</div>
+
+<!-- Launcher -->
 <div id="launcher" class="panel hidden">
     <h2>Multiplayer</h2>
+
     <div class="server">
         <span>CraftPlace Network</span>
         <button onclick="play()">Entrar</button>
     </div>
 </div>
-
-<audio id="click">
-    <source src="assets/click.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>
