@@ -2,54 +2,140 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>CraftPlace Launcher</title>
+<title>CraftPlace</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+<style>
+* {
+    font-family: 'Press Start 2P';
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
 
-<script defer src="firebase.js"></script>
-<script defer src="app.js"></script>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Painel */
+.panel {
+    width: 90%;
+    max-width: 320px;
+    background: #4b4b4b;
+    border: 4px solid #2b2b2b;
+    padding: 16px;
+    box-shadow:
+        inset -4px -4px 0 #3a3a3a,
+        inset 4px 4px 0 #6a6a6a;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 10px;
+    opacity: 0.8;
+    margin-bottom: 14px;
+}
+
+/* Botões */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #8b8b8b;
+    border: 3px solid #2f2f2f;
+    color: white;
+    cursor: pointer;
+    box-shadow:
+        inset -3px -3px 0 #6b6b6b,
+        inset 3px 3px 0 #bcbcbc;
+}
+
+button:active {
+    box-shadow: inset 3px 3px 0 #6b6b6b;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 3px solid #2f2f2f;
+    font-size: 12px;
+}
+
+/* Esconder */
+.hidden {
+    display: none;
+}
+</style>
 </head>
 
 <body>
 
-<!-- Fundo borrado -->
-<div class="background"></div>
-
-<!-- Login Google -->
+<!-- LOGIN -->
 <div id="login" class="panel">
     <h1>CraftPlace</h1>
-    <p class="subtitle">Entre para jogar</p>
+    <div class="subtitle">Entre para jogar</div>
 
-    <button class="google" onclick="loginGoogle()">
-        Entrar com Google
-    </button>
+    <button onclick="loginGoogle()">Entrar com Google</button>
 </div>
 
-<!-- Criar perfil -->
+<!-- CRIAR CONTA -->
 <div id="profile" class="panel hidden">
-    <h2>Criar Perfil</h2>
+    <h1>Criar Perfil</h1>
 
-    <input id="username" placeholder="Nickname">
-    <input id="password" type="password" placeholder="Senha">
+    <input id="nick" placeholder="Nickname">
+    <input id="senha" type="password" placeholder="Senha">
 
-    <button onclick="createAccount()">Confirmar</button>
+    <button onclick="criarConta()">Criar Conta</button>
 </div>
 
-<!-- Launcher -->
+<!-- LAUNCHER -->
 <div id="launcher" class="panel hidden">
-    <h2>Multiplayer</h2>
-
-    <div class="server">
-        <span>CraftPlace Network</span>
-        <button onclick="play()">Entrar</button>
-    </div>
+    <h1>Servidor</h1>
+    <button onclick="entrar()">Entrar no Jogo</button>
 </div>
+
+<script>
+/* ====== LÓGICA SIMPLES (FUNCIONA NO MOBILE) ====== */
+
+function loginGoogle() {
+    // simulação (depois liga no Firebase)
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("profile").classList.remove("hidden");
+}
+
+function criarConta() {
+    const nick = document.getElementById("nick").value;
+    const senha = document.getElementById("senha").value;
+
+    if (!nick || !senha) {
+        alert("Preencha tudo!");
+        return;
+    }
+
+    document.getElementById("profile").classList.add("hidden");
+    document.getElementById("launcher").classList.remove("hidden");
+}
+
+function entrar() {
+    alert("Entrando no servidor...");
+}
+</script>
 
 </body>
 </html>
