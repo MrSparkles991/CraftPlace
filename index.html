@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>CraftPlace Launcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+<script defer src="firebase.js"></script>
+<script defer src="app.js"></script>
+</head>
+
+<body>
+<canvas id="bg"></canvas>
+
+<div id="login" class="panel">
+    <h1>CraftPlace</h1>
+    <button onclick="loginGoogle()">Entrar com Google</button>
+
+    <input id="username" placeholder="Nome do jogador">
+    <input id="password" type="password" placeholder="Senha">
+    <button onclick="createAccount()">Criar Conta</button>
+</div>
+
+<div id="launcher" class="panel hidden">
+    <h2>Multiplayer</h2>
+    <div class="server">
+        <span>CraftPlace Network</span>
+        <button onclick="play()">Entrar</button>
+    </div>
+</div>
+
+<audio id="click">
+    <source src="assets/click.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
